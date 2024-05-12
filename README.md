@@ -2,9 +2,9 @@ This is a repo containing the demo of an approach to simulating a videogame econ
 
 This approach is extremely efficient, easily scalable, and can easily be adapted to be used with scientific computing frameworks such as SciPy (or SciSharp).
 
-Use this approach if you want your game to have an economic system that is unpredictable and yet understandable, and also system that intelligently responds to player's actions and yet can function even in the case of a lack of playuer inputs (which adds to the immersion).
+Use this approach if you want your game to have an economic system that is unpredictable and yet understandable, as well as a system that intelligently responds to player's actions and yet can function even in the case of a lack of player inputs (which adds to the immersion).
 
-The approach of this simulation is very abstract, meaning that game designers could easily adapt it to games of any genre that involves reactive, dynamic economy. Because of the abstractness, a lot of work has to be done to contextualise the inputs and outputs of this simulation as concepts relevant to the desired gameplay; however, this also makes the simulation extremely flexible and adaptive.
+The approach of this simulation is very abstract, meaning that game designers could easily adapt it to games of any genre that involve a reactive, dynamic economy. Because of the abstractness, a lot of work has to be done to contextualize the inputs and outputs of this simulation as concepts relevant to the desired gameplay; however, this also makes the simulation extremely flexible and adaptive.
 
 To build and launch the demo, open project.godot with Godot 3.5.1 .Net version.
 
@@ -16,7 +16,7 @@ Here is how this simulation works:
 
 Some vocabulary:
 
-We call a "sector" some unit of simulation of our world. This approach was originally conceived for spaceship trading games, so sectors would be the space sectors that player could visit. Sector can contain NPC spaceships, space stations, astronomic objects and other gameplay elements. However, sectors are abstracted away as sequences of real numbers. In game design sense this could manifest as game objects being generated and used only when player is about to enter the sector, in all other cases sector is only being simulated as an abstract number representation. Importantly for this simulation, sectors could be connected between each other, and the strength of that connection (number between 0 and 1) could represent the duration of traversal of the connection between these sectors, or fuel cost of traversal, or some other thing related to astronavigation.
+We call a "sector" some unit of simulation of our world. This approach was originally conceived for spaceship trading games, so sectors would be the space sectors that a player could visit. Sectors can contain NPC spaceships, space stations, astronomic objects and other gameplay elements. However, sectors are abstracted away as sequences of real numbers. In game design sense this could manifest as game objects being generated and used only when player is about to enter the sector, in all other cases sector is only being simulated as an abstract number representation. Importantly for this simulation, sectors could be connected between each other, and the strength of that connection (number between 0 and 1) could represent the duration of traversal of the connection between these sectors, or fuel cost of traversal, or some other thing related to astronavigation.
 
 We call a "metric" some economic value we would like to simulate. Examples of these metrics are: (concentration of) high tech wares, ...ores, ...food, ...fuel, ...crime, ...evil aliens, and so forth.
 
