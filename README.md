@@ -30,7 +30,7 @@ The simulation goes like this: We do the matrix multiplication between S and M (
 
 What is the meaning of S'? It is the state of the world, averaged out according to weights of connections. Take an entry in S. After multiplication, the corresponding entry in S` is a weighted average of that entry with its neighbors (in "sector space" or "metric space", depending on adjacency matrix used).
 
-Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the current state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S`. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
+Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the averaged state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S`. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
 
 In short, simulation can be summarized by the following statement:
 
