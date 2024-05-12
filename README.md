@@ -8,6 +8,8 @@ To build and launch the demo, open project.godot with Godot 3.5.1 .Net version.
 
 View video showcase of this project here: https://youtu.be/9B01U9sQYYY
 
+Interact with a playable demo here: https://derkune.itch.io/matrix-economy-simulation
+
 Here is how this simulation works:
 
 Some vocabulary:
