@@ -24,7 +24,7 @@ As mentioned, sectors are "geographically" (or, rather, astronavigationally) con
 
 Metrics are connected to each other as well. This represents the idea that, for instance, low tech wares can be produced from ores and can also be used to produce high tech wares. Unlike the previous matrix, this one can be non-symmetric across the main diagonal, representing that derivative wares can be produced from constituent wares, but not vice versa. (Matrix M can also be possibly non-symmetric, representing, for instance, one-way wormholes.) From this we get a "metric adjacency" matrix N.
 
-Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meaning of M and N below this and above this line is slightly different.
+Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meanings of M and N below this and above this line are different.
 
 The simulation goes like this: We do the matrix multiplication between S and M (or N and S). Given the right order of multiplication and orientation of S, we get another matrix S` that has the same size as S.
 
