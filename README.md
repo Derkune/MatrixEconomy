@@ -28,6 +28,6 @@ Take S.  Perform the multiplication S' = N * S * M. This is the "averaged state"
 
 In short, simulation can be described by the following statement:
 
-S -> S + (N * S * M  - S)*delta,
+S -> S + (N * S * M  - S)*t,
 
-Where S is the state matrix, M is the sector adjacency matrix, N is the metric adjacency matrix, delta is a small real number in (0, 1), and -> is the operation of replacing S with new S on each step of simulation.
+Where S is the state matrix, M is the sector adjacency matrix, N is the metric adjacency matrix, t is a small real number in (0, 1), and -> is the operation of replacing S with new S on each step of simulation.
