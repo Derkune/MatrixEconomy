@@ -2,6 +2,8 @@
 
 This is a repo containing the demo of an approach to simulating a videogame economy using matrix multiplication.
 
+This approach is extremely efficient, easily scalable, and can easily be adapted to be used with scientific computing frameworks such as SciPy (or SciSharp).
+
 To build and launch the demo, open project.godot with Godot 3.5.1 .Net version.
 
 View video showcase of this project here: https://youtu.be/9B01U9sQYYY
@@ -22,7 +24,7 @@ As mentioned, sectors are "geographically" (or, rather, astronavigationally) con
 
 Metrics are connected to each other as well. This represents the idea that, for instance, low tech wares can be produced from ores and can also be used to produce high tech wares. Unlike the previous matrix, this one can be non-symmetric across the main diagonal, representing that derivative wares can be produced from constituent wares, but not vice versa. (Matrix M can also be possibly non-symmetric, representing, for instance, one-way wormholes.) From this we get a "metric adjacency" matrix N.
 
-Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1.
+Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meaning of M and N below this and above this line is slightly different.
 
 The simulation goes like this: We do the matrix multiplication between S and M (or N and S). Given the right order of multiplication and orientation of S, we get another matrix S` that has the same size as S.
 
@@ -30,9 +32,12 @@ What is the meaning of S'? It is the state of the world, averaged out according 
 
 Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the current state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S`. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
 
-In short, simulation can be described by the following statement:
+In short, simulation can be summarized by the following statement:
 
 S -> S + (N * S * M - S)*t,
 
 Where S is the state matrix, M is the sector adjacency matrix, N is the metric adjacency matrix, t is a small real number in (0, 1), and -> is the operation of replacing S with new S on each step of simulation.
+
 At this point in explanation, the simulation isn't all that interesting. S tends towards S', and that's that. However, simulating any kind of event is extremely simple: Between steps of simulation, we can set small number of random entries in S to 0 or 1. This corresponds to random events of overproduction, shortages, battles, raids, holidays and much more.
+
+In the implementation, showcased in this codebase, there is one more important implementation consideration. It gives a big boon to performance of simulation, although is irrelevant for actual outcomes of simulation. The consideration is this: Notice how adjacency matrixes M and N are sparse, meaning that most of their entries are 0. In fact, the amount of non-zero elements in each row or column of M or N is very small, always less than 10. By representing M and N not as square matrixes, but instead as sequences of non-zero elements, we can downgrade the time requirement of our algorithm from O(n^3) to O(N^2). This can become very important if game designers wish to simulate large, procedural universes.
