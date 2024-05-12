@@ -28,11 +28,11 @@ Metrics are connected to each other as well. This represents the idea that, for 
 
 Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meanings of M and N below this and above this line are different.
 
-The simulation goes like this: We do the matrix multiplication between S and M (or N and S). Given the right order of multiplication and orientation of S, we get another matrix S` that has the same size as S.
+The simulation goes like this: We do the matrix multiplication between S and M (or N and S). Given the right order of multiplication and orientation of S, we get another matrix S' that has the same size as S.
 
-What is the meaning of S'? It is the state of the world, averaged out according to weights of connections. Take an entry in S. After multiplication, the corresponding entry in S` is a weighted average of that entry with its neighbors (in "sector space" or "metric space", depending on adjacency matrix used).
+What is the meaning of S'? It is the state of the world, averaged out according to weights of connections. Take an entry in S. After multiplication, the corresponding entry in S' is a weighted average of that entry with its neighbors (in "sector space" or "metric space", depending on adjacency matrix used).
 
-Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the averaged state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S`. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
+Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the averaged state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S'. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
 
 In short, simulation can be summarized by the following statement:
 
