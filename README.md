@@ -1,8 +1,10 @@
-
-
 This is a repo containing the demo of an approach to simulating a videogame economy using matrix multiplication.
 
 This approach is extremely efficient, easily scalable, and can easily be adapted to be used with scientific computing frameworks such as SciPy (or SciSharp).
+
+Use this approach if you want your game to have an economic system that is unpredictable and yet understandable, and also system that intelligently responds to player's actions and yet can function even in the case of a lack of playuer inputs (which adds to the immersion).
+
+The approach of this simulation is very abstract, meaning that game designers could easily adapt it to games of any genre that involves reactive, dynamic economy. Because of the abstractness, a lot of work has to be done to contextualise the inputs and outputs of this simulation as concepts relevant to the desired gameplay; however, this also makes the simulation extremely flexible and adaptive.
 
 To build and launch the demo, open project.godot with Godot 3.5.1 .Net version.
 
