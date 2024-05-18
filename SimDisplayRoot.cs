@@ -9,7 +9,7 @@ public class SimDisplayRoot : Node2D
 {
     public const int ChunksSide = 32;
     public const int NumberOfSystems = 128;
-    public static Texture DotTex = GD.Load("res://Безымянный.png") as Texture;
+    public static Texture DotTex = GD.Load("res://starTexture.png") as Texture;
 
     private SparseMatrix _SectorAdjacencyMatrix;
     private SparseMatrix _MetricAdjacencyMatrix;

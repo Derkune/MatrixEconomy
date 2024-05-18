@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Безымянный.png-0a8d01f0698e83fcbcadad861581093a.stex"
+path="res://.import/starTexture.png-49f6d43678b1eb06ad94689a7566a894.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Безымянный.png"
-dest_files=[ "res://.import/Безымянный.png-0a8d01f0698e83fcbcadad861581093a.stex" ]
+source_file="res://starTexture.png"
+dest_files=[ "res://.import/starTexture.png-49f6d43678b1eb06ad94689a7566a894.stex" ]
 
 [params]
 
