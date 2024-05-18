@@ -1,8 +1,8 @@
-# This is a repo containing the demo of an approach to simulating a videogame economy using matrix multiplication.
+## This is a repo containing the demo of an approach to simulating a videogame economy using matrix multiplication.
 
-## This approach is extremely efficient, easily scalable, and can easily be adapted to be used with scientific computing frameworks such as SciPy (or SciSharp).
+### This approach is extremely efficient, easily scalable, and can easily be adapted to be used with scientific computing frameworks such as SciPy (or SciSharp).
 
-## Use this approach if you want your game to have an economic system that is unpredictable and yet understandable, as well as a system that intelligently responds to player's actions and yet can function even in the case of a lack of player inputs (which adds to the immersion).
+### Use this approach if you want your game to have an economic system that is unpredictable and yet understandable, as well as a system that intelligently responds to player's actions and yet can function even in the case of a lack of player inputs (which adds to the immersion).
 
 The approach of this simulation is very abstract, meaning that game designers could easily adapt it to games of any genre that involve a reactive, dynamic economy. Because of the abstractness, a lot of work has to be done to contextualize the inputs and outputs of this simulation as concepts relevant to the desired gameplay; however, this also makes the simulation extremely flexible and adaptive.
 
@@ -32,7 +32,7 @@ As mentioned, sectors are "geographically" (or, rather, astronavigationally) con
 
 Metrics are connected to each other as well. This represents the idea that, for instance, low tech wares can be produced from ores and can also be used to produce high tech wares. Unlike the previous matrix, this one can be non-symmetric across the main diagonal, representing that derivative wares can be produced from constituent wares, but not vice versa. (Matrix M can also be possibly non-symmetric, representing, for instance, one-way wormholes.) From this we get a "metric adjacency" matrix N.
 
-## Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meanings of M and N below this and above this line are different.
+### Important note: Adjacency matrixes M and N need to be row/column normalized, such that all rows (or all columns, depending on the order of the following multiplication) add up to 1. Because of this, the meanings of M and N below this and above this line are different.
 
 The simulation goes like this: We do the matrix multiplication between S and M (or N and S). Given the right order of multiplication and orientation of S, we get another matrix S' that has the same size as S.
 
@@ -40,7 +40,7 @@ What is the meaning of S'? It is the state of the world, averaged out according 
 
 Take S. Perform the multiplication S' = N * S * M. This is the "averaged state". Subtract D = S' - S. This is the "diff" between current state and the averaged state. Multiply D by some small constant t to get a step diff, delta = D * t. delta is a matrix of the same size as S that represents the change of state S in a small time step if it were to tend towards the "averaged state" S'. Now you can add S_next = S + delta to advance the world state in simulation. In the next step of simulation, you set the previous S_next to be the state S, and repeat these steps again and again.
 
-## In short, simulation can be summarized by the following statement:
+### In short, simulation can be summarized by the following statement:
 
 S -> S + (N * S * M - S)*t,
 
